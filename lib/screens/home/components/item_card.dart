@@ -6,7 +6,10 @@ import '../../details/details_screen.dart';
 class ItemCard extends StatelessWidget {
   final Product product;
 
-  const ItemCard({Key? key, required this.product}) : super(key: key);
+  const ItemCard({
+    Key? key,
+    required this.product,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,10 @@ class ItemCard extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => DetailsScreen(product: product,)),
+          MaterialPageRoute(
+              builder: (context) => DetailsScreen(
+                    product: product,
+                  )),
         );
       },
       child: Column(
@@ -26,10 +32,10 @@ class ItemCard extends StatelessWidget {
               decoration: BoxDecoration(
                   color: product.color, //acessando a cor do produto 0
                   borderRadius: BorderRadius.circular(16)),
-              child: Hero(//transição de uma tela pra outra
+              child: Hero(
+                //transição de uma tela pra outra
                 tag: "${product.id}",
-                child: Image.asset(product.image
-                    .toString()),
+                child: Image.asset(product.image.toString()),
               ), //acessando a imagem do produto 0, precisa do toString pse n é nulla
             ),
           ),
